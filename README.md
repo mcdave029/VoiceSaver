@@ -1,5 +1,7 @@
 # README
 
+current stable version : v0.1.0
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
