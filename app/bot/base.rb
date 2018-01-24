@@ -4,11 +4,13 @@ include Facebook::Messenger
 Bot.on :message do |message_obj|
   Rails.logger.debug "Message Reaction"
 
-  message_obj.sender['id']
-
+  text = "Hello!, im sorry cant recognize anything but audio"
   if message_obj.attachments.first['type'] == 'audio'
-    message_obj.attachments.first['payload']['url']
+    url = message_obj.attachments.first['payload']['url']
+    text = "Great! you can download that voice message here -> #{url} 😍"
   end
+
+  message_obj.reply(text: text)
 end
 
 Bot.on :postback do |message_obj|
