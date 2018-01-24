@@ -5,7 +5,7 @@ Bot.on :message do |message_obj|
   Rails.logger.debug "Message Reaction"
 
   text = "Hello!, im sorry cant recognize anything but audio"
-  if message_obj.attachments.count > 0 && message_obj.attachments.first['type'] == 'audio'
+  if message_obj.attachments&.count.to_i > 0 && message_obj.attachments.first['type'] == 'audio'
     url = message_obj.attachments.first['payload']['url']
     text = "Great! you can download that voice message here -> #{url} 😍"
   end
